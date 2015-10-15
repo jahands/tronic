@@ -1,70 +1,67 @@
 <!DOCTYPE html>
 <html>
-    
-    <title>{{ .Site.Title }}</title>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <link rel="shortcut icon" href="http://www.gravatar.com/avatar/a8dc1f35af7e04617f9e20d1bb4ced62?s=16">
-    <link href="http://fonts.googleapis.com/css?family=Merriweather:300,400,700|Droid+Sans:700,400" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/css/core.css?201503081713">
-<body class="home">
+  
+  <title>{{ .Site.Title }}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <link rel="shortcut icon" href="">
+  <link href="http://fonts.googleapis.com/css?family=Merriweather:300,400,700|Droid+Sans:700,400" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/css/core.css?201503081713">
+  <body class="home">
     <header>
-        <div class="header-container">
-            <h1>
-                <div class="header-greeting">{{ .Site.Title }}</div>
-                <div class="header-intro">{{ .Params.description }}</div>
-            </h1>
-        </div>
+      <div class="header-container">
+        <h1>
+        <div class="header-greeting">{{ .Site.Title }}</div>
+        <div class="header-intro">{{ .Params.description }}</div>
+        </h1>
+      </div>
     </header>
+
+
+    <!-- Begin index content -->
     <div class="years">
-        {{ range first 1 (.Data.Pages.ByPublishDate).Reverse }}
-            {{ $.Scratch.Set "year.start" (.PublishDate.Format "2006") }}
-        {{ end }}
-        {{ $.Scratch.Set "year.index" 0 }} 
-        {{ $year := ($.Scratch.Get "year.start") }}
-                <a name="{{ $year }}"></a>
-                <div
-                   class="year year-{{ $year }} year-active"
-                   data-year="{{ $year }}"
-                   data-index="{{ $.Scratch.Get "year.index" }}"
-                >
-                   <h2>{{ $year }}</h2>
-                   <ul class="posts-{{ $year }}">
-        {{ range (.Data.Pages.ByPublishDate).Reverse }}
-            {{ $.Scratch.Set "year.current" (.PublishDate.Format "2006") }}
-            {{ if ne ($.Scratch.Get "year.start") ($.Scratch.Get "year.current") }}
-                </ul> 
-                {{ $.Scratch.Set "year.index" (add ($.Scratch.Get "year.index") 1) }}
-                {{ $.Scratch.Set "year.start" ($.Scratch.Get "year.current") }}
-                {{ $year := ($.Scratch.Get "year.current") }}
-                <a name="{{ $year }}"></a>
-                <div
-                   class="year year-{{ $year }} year-inactive"
-                   data-year="{{ $year }}"
-                   data-index="{{ $.Scratch.Get "year.index" }}"
-                >
-                   <h2>{{ $year }}</h2>
-                   <ul class="posts-{{ $year }}">
-            {{ end }}
-            <li>
-              <div>
-                <time>{{ .PublishDate.Format "2 January 2006" }}</time>
-                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-                <p>{{ .Summary }}...</p>
-            </div>
-         </li>
-        {{ end }}
-                   </ul>
-    </div>
-    <div class="year-nav year-nav-newer year-nav-disabled">&#9194;</div>
-    <div class="year-nav year-nav-older">&#9193;</div>
+      {{ $.Scratch.Add "year" nil }}
+      {{ $.Scratch.Set "index" 0 }}
+      {{ range (.Data.Pages.ByPublishDate).Reverse }}
+        {{ $year := ($.Scratch.Get "year") }}
+        {{ $index := ($.Scratch.Get "index") }}
+        {{ $current_year := (.PublishDate.Format "2006") }}
+        {{ if ne $year $current_year }}
+          {{ if ne $year nil }}
+            </ul></div>
+            {{ $.Scratch.Set "active" "inactive" }}
+          {{ else }}
+            {{ $.Scratch.Set "active" "active" }}
+          {{ end }}
+          <a name="{{ $current_year }}"></a>
+          <div
+            class="year year-{{ $index }} year-{{ $.Scratch.Get "active" }}"
+            data-year="{{ $current_year }}"
+            data-index="{{ $index }}"
+          >
+            <h2>{{ $current_year }}</h2>
+            <ul class="posts-{{ $current_year }}">
+          {{ $.Scratch.Set "year" $current_year }}
+          {{ $.Scratch.Set "index" (add $index 1) }}
+        {{ end}}
+        <li>
+          <div>
+            <time>{{ .PublishDate.Format "2 January 2006" }}</time>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ (substr .Summary  0 200) | markdownify }}...</p>
+            <a href="{{ .RelPermalink }}">Continue reading &hellip;</a>
+          </div>
+        </li>
+      {{ end }}
+      </ul></div>
+      <div class="year-nav year-nav-newer year-nav-disabled">&#9194;</div>
+      <div class="year-nav year-nav-older">&#9193;</div>
+      <!-- End index content -->
 
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="/js/jquery.readtime.js?201408311426"></script>
-    <script src="/js/core.js?20140831"></script>
-
-</body>
-</html>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="/js/jquery.readtime.js?201408311426"></script>
+      <script src="/js/core.js?20140831"></script>
+    </body>
+  </html>
