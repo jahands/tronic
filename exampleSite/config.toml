@@ -1,7 +1,9 @@
 baseurl = "http://replace-this-with-your-hugo-site.com/"
 languageCode = "en-us"
 title = "My New Hugo Site"
-theme = "tronic"
+theme = "../../../tronic"
+
+permalinks = "/:year/:month/:slug"
 
 [params]
     description = "description of my blog"

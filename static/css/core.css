@@ -164,14 +164,14 @@ time,
   font-size: 60px;
 }
 
-.year-2015 { background-color: #19538c; }
-.year-2014 { background-color: #1d60a2; }
-.year-2013 { background-color: #216db7; }
-.year-2012 { background-color: #2579cd; }
-.year-2011 { background-color: #3186da; }
-.year-2010 { background-color: #4693de; }
-.year-2009 { background-color: #5ca0e2; }
-.year-2008 { background-color: #5ca0e2; }
+.year-0 { background-color: #19538c; }
+.year-1 { background-color: #1d60a2; }
+.year-2 { background-color: #216db7; }
+.year-3 { background-color: #2579cd; }
+.year-4 { background-color: #3186da; }
+.year-5 { background-color: #4693de; }
+.year-6 { background-color: #5ca0e2; }
+.year-7 { background-color: #5ca0e2; }
 
 article ul,
 .year ul
