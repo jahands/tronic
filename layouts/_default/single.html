@@ -1,22 +1,29 @@
-<!DOCTYPE html>
-<html>
-  
-	{{ partial "header.html" . }}
-	<header>
-		<div class="header-container">
-			<h1>
-				<a href="/" class="header-greeting-small">{{ .Site.Title }}</a>
-			</h1>
-		</div>
-	</header>
+{{ partial "header-post.html" . }}
+
+{{ if eq $.Site.Params.sitetitleonpost true }}
+  <header>
+    <div class="header-container">
+  		<h1>
+  			<a href="/" class="header-greeting-small">{{ .Site.Title }}</a>
+  		</h1>
+    </div>
+  </header>
+{{ else }}
+  <header class="header-bar"></header>
+{{ end }}
+
 	<body>
 		<style>.at4-follow-outer { display: none }</style>
 		<a href="/" class="close">&times;</a>
 		<article>
-			<time>{{ .PublishDate.Format "2 January 2006" }}</time>
-			<h1>{{ .Title }}</h1>
+			<time>{{ .Date.Format "2 January 2006" }}</time>
+			<h1>{{ title .Title }}</h1>
 			{{ .Content }}
+      {{ if $.Site.Params.bio }}
 
+      {{ end }}
+      {{ with .Site.DisqusShortname }}
+        {{ partial "disqus.html" . }}
+      {{ end }}
 		</article>
-	</body>
-</html>
+{{ partial "footer.html" . }}

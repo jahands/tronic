@@ -2,9 +2,14 @@ baseurl = "http://replace-this-with-your-hugo-site.com/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "../../../tronic"
+disqusShortname = ""
 
 [permalinks]
 	post = "/:year/:month/:slug"
 
 [params]
-    description = "Description of my blog. You would say some things about yourself here!"
+  description = "Description of my blog. You would say some things about yourself here!"
+	siteTitleOnPost = false
+	copyright = "© 2015 Jane Doe.  <a href=\"http://creativecommons.org/licenses/by/4.0/\">Some rights reserved</a>."
+	bio = ""
+	gravatarHash = ""

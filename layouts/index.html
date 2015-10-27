@@ -1,12 +1,13 @@
 
 
-  {{ partial "header.html" . }}
-
+  {{ partial "header-index.html" . }}
   <header>
   <div class="header-container">
     <h1>
     <a href="{{ .Site.BaseURL }}" class="header-greeting">{{ .Site.Title }}</a>
-    <div class="header-intro">{{ .Params.Description }}</div>
+    {{ if .Site.Params.description }}
+      <div class="header-intro">{{ .Site.Params.description | safeHTML }}</div>
+    {{ end }}
     </h1>
   </div>
 </header>
@@ -19,10 +20,10 @@
     <div class="years">
       {{ $.Scratch.Add "year" nil }}
       {{ $.Scratch.Set "index" 0 }}
-      {{ range (.Data.Pages.ByPublishDate).Reverse }}
+      {{ range (.Data.Pages.ByDate).Reverse }}
         {{ $year := ($.Scratch.Get "year") }}
         {{ $index := ($.Scratch.Get "index") }}
-        {{ $current_year := (.PublishDate.Format "2006") }}
+        {{ $current_year := (.Date.Format "2006") }}
         {{ if ne $year $current_year }}
           {{ if ne $year nil }}
             </ul></div>
@@ -43,18 +44,15 @@
         {{ end}}
         <li>
           <div>
-            <time>{{ .PublishDate.Format "2 January 2006" }}</time>
-            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-            {{ $.Scratch.Add "summary" "" }}
-            {{ $.Scratch.Set "summary" .Summary }}
-            {{ $summary := ((substr .Summary 0 -1) | markdownify) }}
-            {{ range $idx, $elm := $summary }}
-              <h3>{{ $elm }}</h3>
-            {{ end }}
-            <p>{{ (substr .Summary  0 230) | markdownify }}...</p>
-            <a href="{{ .RelPermalink }}">Continue reading &hellip;</a>
-            <p>{{ if .Params.summary }}{{ .Params.summary }}
-               {{ else }}{{ (substr .Summary  0 230) | markdownify }}{{ end }}&hellip;</p>
+            <time>
+              {{ .Date.Format "2 January 2006" }}
+            </time>
+            <h3><a href="{{ .RelPermalink }}">{{ title .Title }}</a></h3>
+            <p>{{ if .Params.summary }}
+                 {{ .Params.summary }}
+               {{ else }}
+                 {{(substr .Summary  0 230) | markdownify }}
+               {{ end }}&hellip;</p>
             <a href="{{ .RelPermalink }}">Continue reading&hellip;</a>
           </div>
         </li>
@@ -66,6 +64,5 @@
 
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
       <!-- <script src="/js/jquery.readtime.js?20151021"></script> -->
-      <script src="/js/core.js?20151021"></script>
-    </body>
-  </html>
+      <script src="/js/core.js?20151027"></script>
+{{ partial "footer.html" . }}

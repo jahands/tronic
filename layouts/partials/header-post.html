@@ -1,0 +1,7 @@
+  {{ partial "header-base.html" . }}
+  {{ if .Params.summary }}
+    <meta name="description" content="{{ .Params.summary | markdownify }}">
+  {{ else }}
+    <meta name="description" content="{{ (substr .Content 0 230) | markdownify }}">
+  {{ end }}
+</head>

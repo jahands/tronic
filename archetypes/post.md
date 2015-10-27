@@ -1,6 +1,8 @@
 +++
+Title = ""
 Description = ""
 Tags = []
-Categories = []
-publishDate = ""
+Series = ""
+Date = ""
+Draft = true
 +++
