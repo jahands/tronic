@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html>
-  
+
+
   {{ partial "header.html" . }}
-  
+
   <header>
   <div class="header-container">
     <h1>
@@ -13,7 +12,7 @@
 </header>
 
   <body class="home">
-    
+
 
 
     <!-- Begin index content -->
@@ -46,7 +45,6 @@
           <div>
             <time>{{ .PublishDate.Format "2 January 2006" }}</time>
             <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-<<<<<<< HEAD
             {{ $.Scratch.Add "summary" "" }}
             {{ $.Scratch.Set "summary" .Summary }}
             {{ $summary := ((substr .Summary 0 -1) | markdownify) }}
@@ -55,11 +53,9 @@
             {{ end }}
             <p>{{ (substr .Summary  0 230) | markdownify }}...</p>
             <a href="{{ .RelPermalink }}">Continue reading &hellip;</a>
-=======
             <p>{{ if .Params.summary }}{{ .Params.summary }}
                {{ else }}{{ (substr .Summary  0 230) | markdownify }}{{ end }}&hellip;</p>
             <a href="{{ .RelPermalink }}">Continue reading&hellip;</a>
->>>>>>> f96f2879df849a0c634119394764180215e9f5a8
           </div>
         </li>
       {{ end }}
