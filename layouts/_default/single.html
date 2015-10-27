@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  
+	{{ partial "header.html" . }}
+	<header>
+		<div class="header-container">
+			<h1>
+				<a href="/" class="header-greeting-small">{{ .Site.Title }}</a>
+			</h1>
+		</div>
+	</header>
+	<body>
+		<style>.at4-follow-outer { display: none }</style>
+		<a href="/" class="close">&times;</a>
+		<article>
+			<time>{{ .PublishDate.Format "2 January 2006" }}</time>
+			<h1>{{ .Title }}</h1>
+			{{ .Content }}
+
+		</article>
+	</body>
+</html>

@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html>
   
-  <title>{{ .Site.Title }}</title>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <link rel="shortcut icon" href="">
-  <link href="http://fonts.googleapis.com/css?family=Merriweather:300,400,700|Droid+Sans:700,400" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="/css/core.css?201503081713">
+  {{ partial "header.html" . }}
+  
+  <header>
+  <div class="header-container">
+    <h1>
+    <a href="{{ .Site.BaseURL }}" class="header-greeting">{{ .Site.Title }}</a>
+    <div class="header-intro">{{ .Params.Description }}</div>
+    </h1>
+  </div>
+</header>
+
   <body class="home">
-    <header>
-      <div class="header-container">
-        <h1>
-        <div class="header-greeting">{{ .Site.Title }}</div>
-        <div class="header-intro">{{ .Params.description }}</div>
-        </h1>
-      </div>
-    </header>
+    
 
 
     <!-- Begin index content -->
@@ -50,6 +46,7 @@
           <div>
             <time>{{ .PublishDate.Format "2 January 2006" }}</time>
             <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+<<<<<<< HEAD
             {{ $.Scratch.Add "summary" "" }}
             {{ $.Scratch.Set "summary" .Summary }}
             {{ $summary := ((substr .Summary 0 -1) | markdownify) }}
@@ -58,6 +55,11 @@
             {{ end }}
             <p>{{ (substr .Summary  0 230) | markdownify }}...</p>
             <a href="{{ .RelPermalink }}">Continue reading &hellip;</a>
+=======
+            <p>{{ if .Params.summary }}{{ .Params.summary }}
+               {{ else }}{{ (substr .Summary  0 230) | markdownify }}{{ end }}&hellip;</p>
+            <a href="{{ .RelPermalink }}">Continue reading&hellip;</a>
+>>>>>>> f96f2879df849a0c634119394764180215e9f5a8
           </div>
         </li>
       {{ end }}
@@ -67,7 +69,7 @@
       <!-- End index content -->
 
       <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-      <script src="/js/jquery.readtime.js?201408311426"></script>
-      <script src="/js/core.js?20140831"></script>
+      <!-- <script src="/js/jquery.readtime.js?20151021"></script> -->
+      <script src="/js/core.js?20151021"></script>
     </body>
   </html>

@@ -3,7 +3,8 @@ languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "../../../tronic"
 
-permalinks = "/:year/:month/:slug"
+[permalinks]
+	post = "/:year/:month/:slug"
 
 [params]
-    description = "description of my blog"
+    description = "Description of my blog. You would say some things about yourself here!"

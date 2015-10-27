@@ -113,7 +113,15 @@ time
   margin-bottom: 10px;
 }
 
+.header-greeting-small h1
+{
+  font-size: 10px;
+  line-height: 1;
+  margin-bottom: 0px;
+}
+
 .header-greeting span,
+.header-greeting-small,
 .year p
 {
   color: #666;
