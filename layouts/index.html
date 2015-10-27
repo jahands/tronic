@@ -50,7 +50,13 @@
           <div>
             <time>{{ .PublishDate.Format "2 January 2006" }}</time>
             <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-            <p>{{ (substr .Summary  0 200) | markdownify }}...</p>
+            {{ $.Scratch.Add "summary" "" }}
+            {{ $.Scratch.Set "summary" .Summary }}
+            {{ $summary := ((substr .Summary 0 -1) | markdownify) }}
+            {{ range $idx, $elm := $summary }}
+              <h3>{{ $elm }}</h3>
+            {{ end }}
+            <p>{{ (substr .Summary  0 230) | markdownify }}...</p>
             <a href="{{ .RelPermalink }}">Continue reading &hellip;</a>
           </div>
         </li>
