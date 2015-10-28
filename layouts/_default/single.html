@@ -19,11 +19,33 @@
 			<time>{{ .Date.Format "2 January 2006" }}</time>
 			<h1>{{ title .Title }}</h1>
 			{{ .Content }}
-      {{ if $.Site.Params.bio }}
 
-      {{ end }}
-      {{ with .Site.DisqusShortname }}
-        {{ partial "disqus.html" . }}
-      {{ end }}
+
+
+
 		</article>
+    <footer>
+      {{ if $.Site.Params.bio }}
+        <img source="http://s.gravatar.com/avatar/f3aa3f76ef851c7e7437824708ea5024?s=128">
+        {{ $.Site.Params.bio | markdownify }}
+      {{ end }}
+    </footer>
+    <!--DISQUS (Turn into a partial later)-->
+          <div id="disqus_thread"></div>
+    <script>
+         if (window.location.hostname == "localhost")
+             return;
+        var disqus_config = function () {
+            this.page.url = .Permalink;
+            this.page.identifier = .RelPermalink;
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//{{ $.Site.Params.disqusshortname }}.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    <!--END DISQUS-->
 {{ partial "footer.html" . }}

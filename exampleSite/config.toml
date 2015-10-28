@@ -2,7 +2,7 @@ baseurl = "http://replace-this-with-your-hugo-site.com/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "../../../tronic"
-disqusShortname = ""
+
 
 [permalinks]
 	post = "/:year/:month/:slug"
@@ -13,3 +13,4 @@ disqusShortname = ""
 	copyright = "© 2015 Jane Doe.  <a href=\"http://creativecommons.org/licenses/by/4.0/\">Some rights reserved</a>."
 	bio = ""
 	gravatarHash = ""
+	disqusshortname = "yourshortname"
