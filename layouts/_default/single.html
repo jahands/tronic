@@ -33,8 +33,7 @@
     <!--DISQUS (Turn into a partial later)-->
           <div id="disqus_thread"></div>
     <script>
-      if (window.location.hostname == "localhost")
-         return;
+    if (window.location.hostname !== "localhost"){
       var disqus_config = function () {
           this.page.url = {{ .Permalink }};
           this.page.identifier = {{ .RelPermalink }};
@@ -45,6 +44,7 @@
           s.setAttribute('data-timestamp', +new Date());
           (d.head || d.body).appendChild(s);
       })();
+    }
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
     <!--END DISQUS-->
