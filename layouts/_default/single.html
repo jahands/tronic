@@ -33,6 +33,8 @@
     <!--DISQUS (Turn into a partial later)-->
           <div id="disqus_thread"></div>
     <script>
+    if (window.location.hostname == "localhost")
++             return;
         var disqus_config = function () {
             this.page.url = {{ .Permalink }};
             this.page.identifier = {{ .RelPermalink }};
