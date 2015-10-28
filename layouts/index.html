@@ -41,7 +41,7 @@
             <time>
               {{ .Date.Format "2 January 2006" }}
             </time>
-            <h3><a href="{{ .RelPermalink }}">{{ title .Title }}</a></h3>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
             <p>{{ if .Params.summary }}
                  {{ .Params.summary }}
                {{ else }}
