@@ -1,4 +1,3 @@
 {{ partial "header-base.html" . }}
-
-<meta name="description" content="{{ $.Site.Params.Description }}">
+<meta name="description" content="{{ $.Site.Params.description | markdownify }}">
 </head>
