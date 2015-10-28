@@ -27,7 +27,7 @@
     <footer>
       {{ if $.Site.Params.bio }}
         <img source="http://s.gravatar.com/avatar/f3aa3f76ef851c7e7437824708ea5024?s=128">
-        {{ $.Site.Params.bio | markdownify }}
+        <p>{{ $.Site.Params.bio | markdownify }}</p>
       {{ end }}
     </footer>
     <!--DISQUS (Turn into a partial later)-->
