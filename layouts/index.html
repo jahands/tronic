@@ -4,7 +4,7 @@
     <h1>
     <a href="{{ .Site.BaseURL }}" class="header-greeting">{{ .Site.Title }}</a>
     {{ if .Site.Params.description }}
-      <div class="header-intro">{{ $.Site.Params.description | markdownify }}</div>
+      <div class="header-intro">{{ .Site.Params.description | markdownify }}</div>
     {{ end }}
     </h1>
   </div>
