@@ -1,6 +1,5 @@
 +++
 Title = ""
-Description = ""
 Tags = []
 Series = ""
 Date = ""
