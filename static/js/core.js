@@ -29,7 +29,7 @@ $(function()
         location.href = fragment;
     });
 
-    $('article').readtime();
+    // $('article').readtime();
 });
 
 equalheight = function(container)
