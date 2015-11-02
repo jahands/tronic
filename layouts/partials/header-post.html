@@ -4,4 +4,5 @@
   {{ else }}
     <meta name="description" content="{{ (substr .Content 0 230) | markdownify }}">
   {{ end }}
+  <title>{{ .Title }}</title>
 </head>
