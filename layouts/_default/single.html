@@ -20,18 +20,20 @@
 			<h1>{{ .Title }}</h1>
 			{{ .Content }}
 
-
-
-
-
     <footer>
       {{ if $.Site.Params.bio }}
-        <img src="https://s.gravatar.com/avatar/{{ $.Site.Params.gravatarhash }}?s=128">
+        {{ if $.Site.Params.gravatarhash }}
+          {{ if $.Site.Params.twitter }}
+            <a href="https://twitter.com/{{ $.Site.Params.twitter }}"<img src="https://s.gravatar.com/avatar/{{ $.Site.Params.gravatarhash }}?s=128"></a>
+          {{ else }}
+            <img src="https://s.gravatar.com/avatar/{{ $.Site.Params.gravatarhash }}?s=128">
+          {{ end }}
+        {{ end }}
         <p>{{ $.Site.Params.bio | markdownify }}</p>
       {{ end }}
     </footer>
     <!--DISQUS (Turn into a partial later)-->
-          <div id="disqus_thread"></div>
+    <div id="disqus_thread"></div>
     <script>
     if (window.location.hostname !== "localhost"){
       var disqus_config = function () {
