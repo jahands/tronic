@@ -90,7 +90,7 @@ body.home,
 .year li
 {
   padding: 20px;
-  padding-right: 15px;
+  padding-right: 17px;
 }
 
 .close,
@@ -130,7 +130,7 @@ time
 .year p
 {
   color: #666;
-  padding-right: 15px;
+  padding-right: 17px;
 }
 
 .close:hover:after,
