@@ -24,7 +24,7 @@
       {{ if $.Site.Params.bio }}
         {{ if $.Site.Params.gravatarhash }}
           {{ if $.Site.Params.twitter }}
-            <a href="https://twitter.com/{{ $.Site.Params.twitter }}"<img src="https://s.gravatar.com/avatar/{{ $.Site.Params.gravatarhash }}?s=128"></a>
+            <a href="https://twitter.com/{{ $.Site.Params.twitter }}"><img src="https://s.gravatar.com/avatar/{{ $.Site.Params.gravatarhash }}?s=128"></a>
           {{ else }}
             <img src="https://s.gravatar.com/avatar/{{ $.Site.Params.gravatarhash }}?s=128">
           {{ end }}
