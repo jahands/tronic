@@ -10,3 +10,7 @@
   {{ if .Site.Params.sumome }}
   <script src="//load.sumome.com/" data-sumo-site-id="{{ .Site.Params.sumome }}" async="async"></script>
   {{ end }}
+  {{ if .RSSlink }}
+    <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+    <link href="{{ .RSSlink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+  {{ end }}
