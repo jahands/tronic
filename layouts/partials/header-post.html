@@ -2,7 +2,7 @@
   {{ if .Params.summary }}
     <meta name="description" content="{{ .Params.summary }}">
   {{ else }}
-    <meta name="description" content="{{ (substr .Summary 0 230) }}...">
+    <meta name="description" content="{{ (substr .Summary 0 230) }}&hellip;">
   {{ end }}
   <title>{{ .Title }}</title>
 </head>
