@@ -1,6 +1,6 @@
   {{ partial "header-base.html" . }}
-  {{ if .Params.summary }}
-    <meta name="description" content="{{ .Params.summary }}">
+  {{ if .Description }}
+    <meta name="description" content="{{ .Description | safeHTML }}">
   {{ else }}
     <meta name="description" content="{{ (substr .Summary 0 230) }}&hellip;">
   {{ end }}
