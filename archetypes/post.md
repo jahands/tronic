@@ -1,6 +1,9 @@
 +++
-Title = ""
-Tags = []
-Series = ""
-Draft = true
+Title       = ""
+Series      = ""
+Tags        = [""]
+Date        = ""
+Publishdate = ""
+Description = ""
+Draft       = true
 +++
