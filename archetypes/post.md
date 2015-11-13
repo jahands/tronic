@@ -3,7 +3,7 @@ Title       = ""
 Series      = ""
 Tags        = [""]
 date        = ""
-Publishdate = ""
+PublishDate = ""
 Description = ""
 Draft       = true
 +++
