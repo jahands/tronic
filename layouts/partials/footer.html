@@ -1,5 +1,5 @@
 <div class="footer-container">
-<p>{{ .Site.Copyright | safeHTML }}</p>
+<p>{{ .Site.Params.copyrighthtml | safeHTML }}</p>
 </div>
 {{with .Site.Params.googleanalyticsuserid }}
   <script>
