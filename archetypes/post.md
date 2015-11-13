@@ -2,7 +2,7 @@
 Title       = ""
 Series      = ""
 Tags        = [""]
-Date        = ""
+date        = ""
 Publishdate = ""
 Description = ""
 Draft       = true
